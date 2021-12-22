@@ -386,10 +386,61 @@ std::cout << i << " " << ri << std::endl;
 
 */
 
-#include <iostream>
+// Exercises 2.3.2
+// Exercise 2.18: Write code to change the value of a pointer. Write code to change the value to which the pointer points./
+/*#include <iostream>
 int main() {
-	int i, & ri = i;
-	i = 5; ri = 10;
-	std::cout << i << " " << ri << std::endl;
-	// should print 10 10
-}
+	int ival = 69, ival2 = 71, * pval = &ival;
+	*pval = 70;
+	std::cout << *pval << std::endl;
+	int* pval2 = &ival2;
+	std::cout << *pval2;
+}*/
+
+// Exercise 2.19: Explain the key differences between pointers and references
+// References are not objects by themselves. They refer to an address. 
+// Pointers ARE objects that can be assigned references of addresses.
+// *Key says a pointer is an object whos value is the address of another object. A reference is not an object; it is an alias of another object.
+
+// Exercise 2.20: What does the following program do?
+/*
+int i = 42;
+int *p = &i;
+*p1 = *p1 * *p1;
+The program initializes an int i, initializes a pointer p1 with the address of i, and assigns the multiplication of pointers p1 to *p1, dereferencing p1.
+
+*/
+
+// Exercise 2.21: Explain each definition and indicate whether any are illegal and why
+/*
+int i = 0;
+(a) double* dp = &i; // Illegal, mismatched types
+(b) int *ip = i; // Illegal, pointer must take address
+(c) int *p = &i; // Soooooo legal!!!
+
+*/
+
+// Exercise 2.22: Assuming p is a pointer to int, explain the following code:
+// if (p) // ...
+// if (*p) // ...
+// Assuming p is a pointer to 0 (pointers point to address, only int it can point to is 0 or nullptr or preprocessor NULL), 
+// Actually, p is 0 and *p is true since it is not 0??? 
+// WRONG! **if (p) means if the pointer p is not null.
+// **if (*p) means if the object pointed by the pointer is not false (which means it is not null or 0)
+
+// Exercise 2.23: Given a pointer p, can you determine whether p points to a valid object? How or why not?
+// Yes, do if (p) and if it is not null it will not be 0 (false).
+// **APPARENTLY, no. It would "be expensive to maintain meta data about what constitutes a valid pointer and what doesn't. (except with smart pointers). See https://stackoverflow.com/questions/17202570/c-is-it-possible-to-determine-whether-a-pointer-points-to-a-valid-object/17202622#17202622
+
+// Exercise 2.24: Why is the initialization of p legal but that of lp illegal?
+// int i = 42; void *p = &i; long *lp = &i;
+// Void any type. Long and int mismatch type.
+
+// Exercise 2.25: Determine types/values of each of following variables
+// (a) int* ip, i, &r = 1;
+// (b) int i, *ip = 0;
+// (c) int* ip, ip2;
+// a. uninitialized pointer int ip, int i, reference int r to 1
+// b. int i, null pointer ip
+// c. null pointer int ip, int ip2;
+// Unchecked, could be wrong.\

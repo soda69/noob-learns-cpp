@@ -1,2 +1,2 @@
 ﻿  hello.cpp
-  Project3.vcxproj -> C:\Users\iepic\source\repos\Project3\x64\Debug\Project3.exe
+C:\Users\iepic\source\repos\Project3\Project3\hello.cpp(451): error C4700: uninitialized local variable 'ip' used
